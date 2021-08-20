@@ -17,6 +17,7 @@ let random;
 let chosenWord;
 let chosenLetter;
 let alreadyChosenLetter = [0];
+let isgameOverTriggered = false;
 
 
 play();
@@ -26,6 +27,7 @@ guesses=9;
 positions = [];
 lines = [];
 alreadyChosenLetter= [0];
+isgameOverTriggered=false;
 
 for(var i=0;i<26;i++){
 
@@ -35,7 +37,6 @@ for(var i=0;i<26;i++){
 
 plives.innerHTML="You have " + guesses + " lives left";
 plives.style.color="white";
-
 
 word.innerHTML="";
 choseWord();
@@ -53,9 +54,6 @@ function choseWord(){
   }
 }
 
-
-
-
 console.log(chosenWord);
 
 //Button Function
@@ -71,8 +69,6 @@ if(!alreadyChosenLetter.includes(chosenLetter)){
 
 }
 
-
-
 //Guess
 function Check(){
 
@@ -81,9 +77,17 @@ function Check(){
     }
     else{
       
+      if(guesses>0){
         guesses--;
+      }
+
         livesleft.innerHTML=guesses;
-        updateLives();        
+
+       
+          updateLives();        
+        
+          
+
         Draw(draws[step++]);
         if(guesses===0){
             Gameover();
@@ -93,9 +97,14 @@ function Check(){
 
 //Gameover
 function Gameover(){
+  isgameOverTriggered=true;
 plives.innerHTML="Gameover, you dont have any lives left";
 plives.style.color="red";
 
+for(var i=0;i<26;i++){
+  alreadyChosenLetter.push(letter[i]);
+}
+ console.log(alreadyChosenLetter);
 reset.classList.add('clicked');
 }
 
@@ -229,10 +238,12 @@ Draw = (part) => {
 
  //ButtonGreyOut
  function buttonGreyOut(){
-  let clickedbutton = document.getElementById(chosenLetter);
-clickedbutton.classList.add('clicked');
-  
- }
+
+  if(isgameOverTriggered === false){
+    let clickedbutton = document.getElementById(chosenLetter);
+  clickedbutton.classList.add('clicked');
+}
+}
 
  //Reset
  function onRestart(){
@@ -242,5 +253,5 @@ clickedbutton.classList.add('clicked');
 
  //Update Lives
  function updateLives(){
-   plives.innerHTML="You have" + " " + guesses + " " + "lives left";
+     plives.innerHTML="You have" + " " + guesses + " " + "lives left";
  }
