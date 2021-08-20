@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="design.css" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hangman</h1>
+    <h3>Use the alphabet below to guess the word</h3>
+
+    <div ID="buttons">
+    <button ID="a" onclick="onClick(this.id)">a</button>
+    <button ID="b" onclick="onClick(this.id)">b</button>
+    <button ID="c" onclick="onClick(this.id)">c</button>
+    <button ID="d" onclick="onClick(this.id)">d</button>
+    <button ID="e" onclick="onClick(this.id)">e</button>
+    <button ID="f" onclick="onClick(this.id)">f</button>
+    <button ID="g" onclick="onClick(this.id)">g</button>
+    <button ID="h" onclick="onClick(this.id)">h</button>
+    <button ID="i" onclick="onClick(this.id)">i</button>
+    <button ID="j" onclick="onClick(this.id)">j</button>
+    <button ID="k" onclick="onClick(this.id)">k</button>
+    <button ID="l" onclick="onClick(this.id)">l</button>
+    <button ID="m" onclick="onClick(this.id)">m</button>
+    <button ID="n" onclick="onClick(this.id)">n</button>
+    <button ID="o" onclick="onClick(this.id)">o</button>
+    <button ID="p" onclick="onClick(this.id)">p</button>
+    <button ID="q" onclick="onClick(this.id)">q</button>
+    <button ID="r" onclick="onClick(this.id)">r</button>
+    <button ID="s" onclick="onClick(this.id)">s</button>
+    <button ID="t" onclick="onClick(this.id)">t</button>
+    <button ID="u" onclick="onClick(this.id)">u</button>
+    <button ID="v" onclick="onClick(this.id)">v</button>
+    <button ID="w" onclick="onClick(this.id)">w</button>
+    <button ID="x" onclick="onClick(this.id)">x</button>
+    <button ID="y" onclick="onClick(this.id)">y</button>
+    <button ID="z" onclick="onClick(this.id)">z</button>
+    </div>
+    
+    <p ID="letters"></p>
+    <h4 ID="mylives">You have <span ID="lives"></span> lives left.</h4>
+    <p ID="word"></p>
+    <canvas id="hangman" width="180" height="250">Failure</canvas>
+    <button ID="restart" onclick="onRestart()">Restart</button>
+
+    <script src="script.js" type="text/javascript"></script>
+</body>
+</html>
