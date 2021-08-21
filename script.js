@@ -11,6 +11,7 @@ const reset = document.getElementById("restart");
 
 
 
+
 let guesses;
 let guess;
 let positions = [];
@@ -19,7 +20,8 @@ let random;
 let chosenWord;
 let chosenLetter;
 let alreadyChosenLetter = [0];
-let isgameOverTriggered = false;
+let isgameOverTriggered = false
+let step;
 
 
 play();
@@ -30,8 +32,9 @@ positions = [];
 lines = [];
 alreadyChosenLetter= [0];
 isgameOverTriggered=false;
-context.clearRect(0,0,canvas.width,canvas.height);
+step=0;
 
+canvas.width = canvas.width;
 
 for(var i=0;i<26;i++){
 
@@ -86,13 +89,11 @@ function Check(){
       }
 
         livesleft.innerHTML=guesses;
-
-       
+     
           updateLives();        
-        
-          
 
         Draw(draws[step++]);
+
         if(guesses===0){
             Gameover();
         }
@@ -108,7 +109,7 @@ plives.style.color="red";
 for(var i=0;i<26;i++){
   alreadyChosenLetter.push(letter[i]);
 }
- console.log(alreadyChosenLetter);
+
 reset.classList.add('clicked');
 }
 
@@ -154,6 +155,7 @@ function Won(){
 
 //Draw Hangman
 Draw = (part) => {
+  context.save();
     switch (part) {
        case 'gallows' :
          context.strokeStyle = 'white';
@@ -238,7 +240,7 @@ Draw = (part) => {
     'rightFoot',
     'leftFoot',
  ]
- var step = 0;
+ step = 0;
 
  //ButtonGreyOut
  function buttonGreyOut(){
