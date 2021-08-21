@@ -9,6 +9,8 @@ const canvas = document.getElementById('hangman');
 const context = canvas.getContext("2d");
 const reset = document.getElementById("restart");
 
+
+
 let guesses;
 let guess;
 let positions = [];
@@ -28,6 +30,8 @@ positions = [];
 lines = [];
 alreadyChosenLetter= [0];
 isgameOverTriggered=false;
+context.clearRect(0,0,canvas.width,canvas.height);
+
 
 for(var i=0;i<26;i++){
 
